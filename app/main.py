@@ -31,8 +31,6 @@ def login():
     else:
         return render_template("login.html")
 
-
-
 @app.route("/table")
 def table():
     if "tablenumber" in session:

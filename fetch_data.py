@@ -9,7 +9,7 @@ conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cur = conn.cursor() 
 
 def test():
-    s = "select * from restbest;"
+    s = "select * from restbestmenu;"
     print("vor cur")
     cur.execute(s)
     table = cur.fetchall()

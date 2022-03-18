@@ -1,7 +1,14 @@
-<h1>Select Table</h1>
+{%extends "base.html"%}
 
-<form action="#" method="post">
-    <p>Enter Tablenumber: </p>
-    <p><input type="text" name="tablenumber" /></p>
-    <p><input type="submit" value="Next" /></p>
-</form>
+{%block title%}     
+    Select Table
+{%endblock %}
+
+{%block content%}  
+    <h1>Select Table</h1>
+    <form action="#" method="post">
+        <p>Enter Tablenumber: </p>
+        <p><input type="text" name="tablenumber" /></p>
+        <p><input type="submit" value="Next" /></p>
+    </form>
+{%endblock%}
