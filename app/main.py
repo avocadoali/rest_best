@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, request, session,  render_template 
+from flask import Flask, redirect, url_for, request, session,  render_template, jsonify
 from datetime import timedelta
 
 
@@ -47,17 +47,11 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/test" , methods=['GET', 'POST'])
-def test():
+@app.route("/pain" , methods=['GET', 'POST'])
+def pain():
     output = test()
     print("nach test")
-    return output
-
-
-
-
-
-
+    return jsonify(output)
 
 
 
