@@ -47,7 +47,6 @@ def logout():
 
 @app.route("/pain" , methods=['GET', 'POST'])
 def pain():
-    #menu_list = test()
     list = test()
     print("nach test")
     return render_template("pain.html",  menu_list=list)

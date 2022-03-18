@@ -1,0 +1,10 @@
+{%extends "base.html"%}
+
+{%block content%}  
+    {%for x in menu_list%}
+        {%for a in x%}
+        <p>{{a}}</p>
+        {%endfor%}
+    {%endfor%}
+        
+{%endblock%}
