@@ -45,6 +45,32 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route('/list', methods=['GET', 'POST'])
+def menu():
+    if request.method == 'POST': 
+        print(request.form.getlist('mycheckbox'))
+        return render_template('list-view.html')
+    print("test")
+    return render_template('list-view.html')
+
+
+#@app.route("/list" , methods=['GET', 'POST'])
+#def menu():
+#    if request.method == 'POST': 
+#        print(request.form.getlist('mycheckbox'))
+#        return redirect(url_for ("login"))
+#    else :
+#        return render_template('list-view.html')
+#
+#    if request.method =='POST':
+#        print(request.form.get('checkbox'))
+#        return 'Done'
+#    list = test()
+#    print("nach test")
+#    return render_template("list-view.html",  menu_list=list)
+
+
+
 @app.route("/pain" , methods=['GET', 'POST'])
 def pain():
     list = test()
