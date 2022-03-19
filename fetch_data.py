@@ -77,27 +77,7 @@ def get_overview_orders():
     dict = {}
     for x in list:
         temp =  get_order_of_table(x)
-        print("this ist temp")
-        print(x)
-        print(temp)
-
         dict[x] = temp
-
-    print("")
-    print("")
-    print(dict["69"])
-
-    print("")
-    print("")
-    print(dict["123"])
-
-    print("")
-    print("")
-    print(dict["6969"])
-    print("")
-    print("this is in function")
-
-
     return dict
 
 def get_distinct_table():
