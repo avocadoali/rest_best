@@ -94,7 +94,7 @@ RETURNING *;
 SELECT * FROM restbestmenu;
 
 
-## Select all Order from Table
+## Select all Order from one Table
 
 with get_all as (
     SELECT rm.id as id, rm.name, rm.type,rm.price
@@ -112,9 +112,15 @@ select distinct *
 from get_all a, get_anz b 
 where a.id = b.iddd;
 
+## Select all orders from all tables
+SELECT rt.table_id, rt.id as order_nr,  rm.id as food_id, rm.name, rm.type,rm.price
+FROM restbesttables rt, restbestmenu rm 
+where rm.id = rt.item_id
+order by table_id, order_nr;
 
-
-
+## Get distinct tables
+select distinct(table_id)
+from restbesttables
 
 
 ## Rename Columns
@@ -123,7 +129,6 @@ ALTER TABLE restbestmenu
 RENAME COLUMN name TO nameeeeee;
 
 ## Change Column Type 
-
 
 ALTER TABLE restbestmenu
 ALTER name varchar(15) not null (type IN('Starters', 'Main Dishes', 'Drinks', 'Side Dishes'));

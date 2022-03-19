@@ -67,9 +67,48 @@ def get_order_of_table(table_ID):
     s +="select distinct * "
     s +="from get_all a, get_anz b "
     s +="where a.id = b.iddd;"
-    print(s)
     cur.execute(s)
     table = cur.fetchall()
     conn.commit()
-    print(table)
     return table
+
+def get_overview_orders():
+    list = get_distinct_table()
+    dict = {}
+    for x in list:
+        temp =  get_order_of_table(x)
+        print("this ist temp")
+        print(x)
+        print(temp)
+
+        dict[x] = temp
+
+    print("")
+    print("")
+    print(dict["69"])
+
+    print("")
+    print("")
+    print(dict["123"])
+
+    print("")
+    print("")
+    print(dict["6969"])
+    print("")
+    print("this is in function")
+
+
+    return dict
+
+def get_distinct_table():
+    s = "select distinct(table_id) from restbesttables"
+    cur.execute(s)
+    table = cur.fetchall()
+    conn.commit()
+    list = []
+    for x in table:
+        list.append(str(x[0]))
+    return list
+
+
+
