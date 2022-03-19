@@ -4,7 +4,7 @@
   {%for x in menu_list%}
   <p>
     {{x[1]}}
-    <input type="number" name="{{x[0]}}"/>
+    <input type="number" name="{{x[0]}}" min="0"/>
   </p>
   {%endfor%}
   <p><input type="submit" name="Submit" value="Go to cart"/></p>
