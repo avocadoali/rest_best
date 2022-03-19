@@ -1,0 +1,15 @@
+{%extends "base.html"%} 
+
+{%block content%} 
+<h3>Your Cart</h3>
+<form method="POST" action="#">
+  {%for x in list_cart%}
+  <p>
+    {{list_cart[x][1][1]}}
+    <input type="number" name="{{x}}"  value="{{list_cart[x][0]}}"  
+  </p>
+  {%endfor%}
+  <p><input type="submit" name="Submit" value=Order /></p>
+</form>
+
+{%endblock%}

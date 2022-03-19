@@ -1,0 +1,16 @@
+{%extends "base.html"%} 
+
+{%block content%} 
+
+<h3>Orders</h3>
+<form method="POST" action="#">
+  {%for x in menu_list%}
+  <p>
+    {{x[1]}}
+    {{x[5]}}x
+  </p>
+  {%endfor%}
+</form>
+
+
+{%endblock%}
