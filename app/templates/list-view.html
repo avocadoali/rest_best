@@ -1,12 +1,12 @@
-{%extends "base.html"%} 
-
-{%block content%} 
-{%for x in menu_list%}
+{%extends "base.html"%} {%block content%}
 <form method="POST" action="#">
-  <p><input type="checkbox" value={{x[0]}} name="mycheckbox" /> {{x}}</p>
+  {%for x in menu_list%}
+  <p>
+    {{x[1]}}
+    <input type="number" name="{{x[0]}}" min="1" max="5" />
+  </p>
   {%endfor%}
   <p><input type="submit" name="Submit" /></p>
 </form>
 
- 
 {%endblock%}

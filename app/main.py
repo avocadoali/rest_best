@@ -2,7 +2,7 @@ from flask import Flask, redirect, url_for, request, session,  render_template, 
 from datetime import timedelta
 
 
-from fetch_data import test
+from fetch_data import get_menu_all
 
 ## Start App on local host like this:
 
@@ -14,8 +14,6 @@ from fetch_data import test
 
 app=Flask(__name__)
 app.secret_key = "dis is a secret key"
-def home_view():        
-    return render_template('index.html')
 
 @app.route('/')
 def home_view():        
@@ -48,14 +46,31 @@ def logout():
 @app.route("/list" , methods=['GET', 'POST'])
 def menu():
     if request.method =='GET':
-        list = test()
+        list = get_menu_all()
         len_list = len(list) + 1
-        print("nach test")
-        return render_template("list-view.html",  menu_list=list, n = len_list)
+        return render_template("list-view.html",  menu_list=list)
 
-    checks = request.form.getlist("mycheckbox")
-    print(request.form.get('checkbox'))
-    return f"<h1> {checks}</h1>"
+    dict_cart = request.form.to_dict()
+    menu = get_menu_all()
+
+    new_menu =  {}
+    dict_cart = { k:v for k, v in dict_cart.items() if v }
+    del dict_cart['Submit']
+    print(dict_cart)
+    new_menu =  {}
+    for x in dict_cart:
+        print(x)
+        i = int(x)
+        new_menu[x] = [dict_cart[x], menu[i-1]]
+
+    session["dict_cart"] = new_menu
+    return redirect(url_for("cart"))
+
+@app.route("/cart" , methods=['GET', 'POST'])
+def cart():
+    print("this is the cart")
+    print(session["dict_cart"])
+    return render_template("cart.html", list_cart = session["dict_cart"])
  
 
 

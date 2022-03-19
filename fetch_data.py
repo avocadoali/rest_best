@@ -8,7 +8,7 @@ DATABASE_URL = 'postgres://nhukilfdhxrgfd:a6a0114dfb6998f09a3eb29c86c659734cf32c
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cur = conn.cursor() 
 
-def test():
+def get_menu_all():
     s = "select * from restbestmenu;"
     print("vor cur")
     cur.execute(s)
@@ -16,3 +16,17 @@ def test():
     conn.commit()
     print(table)
     return table
+
+def get_menu_by_id(id):
+    s = "select * from restbestmenu where id = " + id[0]
+    for i in id:
+        s = " or id=" + i
+
+    print("vor cur")
+    cur.execute(s)
+    table = cur.fetchall()
+    conn.commit()
+    print(table)
+    return table
+
+
