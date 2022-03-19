@@ -1,8 +1,7 @@
 from flask import Flask, redirect, url_for, request, session,  render_template, jsonify
 from datetime import timedelta
 
-
-from fetch_data import get_menu_all
+from fetch_data import get_menu_all, get_order_of_table, handle_order_cart
 
 ## Start App on local host like this:
 
@@ -47,7 +46,6 @@ def logout():
 def menu():
     if request.method =='GET':
         list = get_menu_all()
-        len_list = len(list) + 1
         return render_template("list-view.html",  menu_list=list)
 
     dict_cart = request.form.to_dict()
@@ -68,18 +66,24 @@ def menu():
 
 @app.route("/cart" , methods=['GET', 'POST'])
 def cart():
-    print("this is the cart")
-    print(session["dict_cart"])
+    if request.method == 'POST':
+        table_id = session["tablenumber"]
+        list_cart = session["dict_cart"]
+        handle_order_cart(table_id, list_cart)
+        return redirect(url_for("menu"))
+
     return render_template("cart.html", list_cart = session["dict_cart"])
  
+
+@app.route("/orders" , methods=['GET', 'POST'])
+def orders():
+    table_id = session["tablenumber"]
+    list = get_order_of_table(table_id)
+    print(list)
+    return render_template("orders.html",  menu_list=list)
 
 
 @app.route("/pain" , methods=['GET', 'POST'])
 def pain():
-    list = test()
     print("nach test")
     return render_template("pain.html",  menu_list=list)
-
-
-
-

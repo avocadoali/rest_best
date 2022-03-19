@@ -22,12 +22,22 @@ details     varchar(300)
 CREATE TABLE IF NOT EXISTS restbesttables(
 ID          serial PRIMARY KEY,
 TABLE_ID    integer NOT NULL,
-ITEM_ID     varchar(40) NOT NULL,
+ITEM_ID     integer NOT NULL,
 FOREIGN KEY (ITEM_ID) REFERENCES restbestmenu(ID)
 );
 
 
-## Insert Row in a table
+## Insert Row in a table restbesttables
+INSERT INTO restbesttables (table_id, item_id)
+VALUES ( 6969, 10);
+
+INSERT INTO restbesttables (table_id, item_id)
+VALUES ( 6969, 420)
+RETURNING *;
+
+
+
+## Insert Row in a table restbestmenu
 DROP TABLE IF EXISTS restbestmenu;
 
 CREATE TABLE IF NOT EXISTS restbestmenu(
@@ -79,18 +89,33 @@ RETURNING *;
 
 
 
-INSERT INTO restbesttables (table_id, item_id)
-VALUES ( 6969, 10);
-
-INSERT INTO restbesttables (table_id, item_id)
-VALUES ( 6969, 420)
-RETURNING *;
-
-
-
 ## Select from table
 
 SELECT * FROM restbestmenu;
+
+
+## Select all Order from Table
+
+with get_all as (
+    SELECT rm.id as id, rm.name, rm.type,rm.price
+    FROM restbesttables rt, restbestmenu rm 
+    where rt.table_id = 123
+    and rm.id = rt.item_id
+), get_anz as (
+    SELECT rm.id iddd, count(*) cnt
+    FROM restbesttables rt, restbestmenu rm 
+    where rt.table_id = 123
+    and rm.id = rt.item_id
+    group by rm.id
+)
+select distinct * 
+from get_all a, get_anz b 
+where a.id = b.iddd;
+
+
+
+
+
 
 ## Rename Columns
 
