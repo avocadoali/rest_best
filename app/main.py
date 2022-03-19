@@ -25,7 +25,7 @@ def login():
         session.permanent = True
         tablenumber = request.form["tablenumber"]
         session["tablenumber"] = tablenumber
-        return redirect(url_for("table"))
+        return redirect(url_for("menu"))
     else:
         return render_template("login.html")
 
@@ -43,7 +43,7 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/list" , methods=['GET', 'POST'])
+@app.route("/menu" , methods=['GET', 'POST'])
 def menu():
     if request.method =='GET':
         list = get_menu_all()

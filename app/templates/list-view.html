@@ -1,4 +1,5 @@
 {%extends "base.html"%} {%block content%}
+<h3>Menu</h3>
 <form method="POST" action="#">
   {%for x in menu_list%}
   <p>
@@ -6,7 +7,7 @@
     <input type="number" name="{{x[0]}}"/>
   </p>
   {%endfor%}
-  <p><input type="submit" name="Submit" /></p>
+  <p><input type="submit" name="Submit" value="Go to cart"/></p>
 </form>
 
 {%endblock%}
