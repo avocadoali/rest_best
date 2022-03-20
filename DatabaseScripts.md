@@ -95,7 +95,6 @@ SELECT * FROM restbestmenu;
 
 
 ## Select all Order from one Table
-
 with get_all as (
     SELECT rm.id as id, rm.name, rm.type,rm.price
     FROM restbesttables rt, restbestmenu rm 
@@ -111,6 +110,34 @@ with get_all as (
 select distinct * 
 from get_all a, get_anz b 
 where a.id = b.iddd;
+
+## Select all Order from one Table with chrono
+with get_all as (
+    SELECT rm.id as id, rm.name, rm.type,rm.price, rt.id as chrono
+    FROM restbesttables rt, restbestmenu rm
+    where rt.table_id = 123
+    and rm.id = rt.item_id
+), get_anz as (
+    SELECT rm.id iddd, count(*) cnt
+    FROM restbesttables rt, restbestmenu rm
+    where rt.table_id = 123
+    and rm.id = rt.item_id
+    group by rm.id
+)
+select distinct(id), name, type, price, iddd, cnt
+from get_all a, get_anz b
+where a.id = b.iddd;
+
+## Delete n entries in tables
+
+DELETE FROM restbesttables
+WHERE id  IN (
+    SELECT id 
+    FROM restbesttables rt
+    WHERE rt.table_id = 55555
+    AND rt.item_id = 1
+    limit 2
+    )
 
 ## Select all orders from all tables
 SELECT rt.table_id, rt.id as order_nr,  rm.id as food_id, rm.name, rm.type,rm.price

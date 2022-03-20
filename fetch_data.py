@@ -70,6 +70,10 @@ def get_order_of_table(table_ID):
     cur.execute(s)
     table = cur.fetchall()
     conn.commit()
+    print("")
+    print("")
+    print("")
+    print(table)
     return table
 
 def get_overview_orders():
