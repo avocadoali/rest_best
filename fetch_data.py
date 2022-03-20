@@ -95,4 +95,13 @@ def get_distinct_table():
     return list
 
 
-
+def delete_items(table_id, item_id, amount):
+    s = """ 
+        DELETE FROM restbesttables
+        WHERE id  IN (
+            SELECT id 
+            FROM restbesttables rt
+            WHERE rt.table_id = 55555
+            AND rt.item_id = 1
+            limit 2) 
+        """
