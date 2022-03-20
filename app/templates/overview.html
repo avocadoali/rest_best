@@ -8,10 +8,15 @@
   <h5>Table {{x}} </h5>
 
     {%for n in menu_list[x]%}
-    <p> {{n[1]}}, {{n[5]}}x</p>
+    <p> {{n[1]}}---------Amount:  
+        <input type="number" name="{{x}}, {{n[0]}}" min="0" max="{{n[5]}}"  value="{{n[5]}}"/>
+    </p>
+
     {%endfor%}
 
   {%endfor%}
+  <p><input type="submit" name="Submit" value="Enter"/></p>
+
 </form>
 
 {%endblock%}

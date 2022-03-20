@@ -1,7 +1,7 @@
 from flask import Flask, redirect, url_for, request, session,  render_template, jsonify
 from datetime import timedelta
 
-from fetch_data import get_distinct_table, get_menu_all, get_order_of_table, get_overview_orders, handle_order_cart
+from fetch_data import delete_items, get_distinct_table, get_menu_all, get_order_of_table, get_overview_orders, handle_order_cart
 
 ## Start App on local host like this:
 
@@ -85,6 +85,11 @@ def orders():
 
 @app.route("/overview" , methods=['GET', 'POST'])
 def overview():
+    if request.method == 'POST':
+        og_list = get_overview_orders()
+        dif_list = request.form.to_dict()
+        delete_items(og_list,dif_list)
+
     list = get_overview_orders()
     print("")
     print("das ist return von get_overview_orders")
