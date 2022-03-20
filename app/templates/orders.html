@@ -2,7 +2,7 @@
 
 {%block content%} 
 
-<h3>Orders</h3>
+<h3>Your Orders</h3>
 <form method="POST" action="#">
   {%for x in menu_list%}
   <p>
@@ -10,6 +10,12 @@
     {{x[5]}}x
   </p>
   {%endfor%}
+</form>
+
+<form method="get" action="/menu">
+  <button type="submit">Go back to menu</button>
+
+  <meta charset="utf-8" />
 </form>
 
 

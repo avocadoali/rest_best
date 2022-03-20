@@ -9,6 +9,9 @@ from fetch_data import delete_items, get_distinct_table, get_menu_all, get_order
 # source rest_best/bin/activate
 # pip install -r requirements.txt
 # python3 -m flask run
+# --To get auto reload in flask--
+# export FLASK_APP=app/main.py
+# export FLASK_ENV=development
 
 
 app=Flask(__name__)
