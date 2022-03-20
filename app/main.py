@@ -47,6 +47,9 @@ def logout():
 
 @app.route("/menu" , methods=['GET', 'POST'])
 def menu():
+    if "tablenumber" not in session:
+        return redirect(url_for ("login"))
+    
     if request.method =='GET':
         list = get_menu_all()
         return render_template("list-view.html",  menu_list=list)
