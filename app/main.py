@@ -44,7 +44,6 @@ def logout():
     session.pop("tablenumber", None)
     return redirect(url_for("login"))
 
-
 @app.route("/menu" , methods=['GET', 'POST'])
 def menu():
     if "tablenumber" not in session:
@@ -107,3 +106,7 @@ def overview():
 def pain():
     print("nach test")
     return render_template("pain.html",  menu_list=list)
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
