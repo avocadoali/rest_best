@@ -1,22 +1,54 @@
-{%extends "base.html"%} 
+{%extends "base.html"%} {%block content%}
 
-{%block content%} 
+<div class="maincontent">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h1 class="display-4 text-center">TABLE AND ORDER OVERVIEW</h1>
 
-<h3>Overview</h3>
-<form method="POST" action="#">
-  {%for x in menu_list%}
-  <h5>Table {{x}} </h5>
+        <article
+          class="article"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-offset="0"
+          data-aos-delay="200"
+        >
+          <form method="POST" action="#">
+            {%for x in menu_list%}
 
-    {%for n in menu_list[x]%}
-    <p> {{n[1]}}---------Amount:  
-        <input type="number" name="{{x}}, {{n[0]}}" min="0" max="{{n[5]}}"  value="{{n[5]}}"/>
-    </p>
+            <div class="item row align-items-center">
+              <div class="details col-sm-9">
+                <div class="item__header">
+                  <h3 class="item__title">Tablenumber: {{x}}</h3>
+                </div>
 
-    {%endfor%}
+                {%for n in menu_list[x]%} 
+                <p class="item__description">
+                  <div style="float: right"> 
+                  <span class="minus">-</span>
+                  <input type="number" name="{{x}}, {{n[0]}}" min="0" max="{{n[5]}}" value="{{n[5]}}"/>
+                  <span class="plus">+</span>
+                  </div>
+                  {{n[1]}}
+                </p>
+                {%endfor%}
 
-  {%endfor%}
-  <p><input type="submit" name="Submit" value="Enter"/></p>
+              </div>
+            </div>
 
-</form>
+            {%endfor%}
+            
+
+
+            <p><input type="submit" name="Submit" value="Enter" /></p>
+
+
+
+          </form>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
 
 {%endblock%}
