@@ -67,18 +67,6 @@ def menu():
     for x in n_dict_cart:
         i = int(x)
         new_menu[x] = [n_dict_cart[x], menu[i-1]]
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("sumbited menu")
-    print(new_menu)
-    print("end menu")
-    print("")
-    print("")
-    print("")
-    print("")
 
     session["dict_cart"] = new_menu
     return redirect(url_for("cart"))
@@ -88,9 +76,22 @@ def cart():
     if request.method == 'POST':
         table_id = session["tablenumber"]
         list_cart = session["dict_cart"]
+        print("")
+        print("")
+        print("")
+        print("list_cart")
+        print(list_cart)
+ 
+
+
         handle_order_cart(table_id, list_cart)
         return redirect(url_for("orders"))
 
+    print("")
+    print("")
+    print("")
+    print("dict_cart")
+    print(session["dict_cart"])
     return render_template("cart.html", list_cart = session["dict_cart"])
  
 

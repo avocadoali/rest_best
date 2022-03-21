@@ -1,19 +1,42 @@
 {%extends "base.html"%} 
 
 {%block content%} 
+<div
+  class="block hero1 my-auto" style="background-image: url(https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80);">
+  <div class="container-fluid text-center">
+    <h1 class="display-2 text-white" data-aos="fade-up" data-aos-duration="1000"data-aos-offset="0">
+    YOUR ORDERS
+    </h1>
+    <p class="lead text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600"></p>
+  </div>
+  <div class="clearfix"></div>
+</div> 
 
-<h3>Your Orders</h3>
-<form method="POST" action="#">
-  {%for x in menu_list%}
-  <p>
-    {{x[1]}}
-    {{x[5]}}x
-  </p>
-  {%endfor%}
-</form>
+<div class="maincontent">
+  <div class="container">
+    <section id="menu">
+      <div class="block menu1">
+
+  <div class="menu menu--is-visible" id="pizzaMenu" data-aos="fade-up">
+          {%for x in menu_list%}
+          <div class="item row align-items-center">
+                <div class="details col-sm-9">
+                  <div class="item__header">
+                    <h3 class="item__title">{{x[1]}}</h3>
+                    <span class="item__dots"></span>
+                    <span class="item__price">{{x[5]}}x</span>
+                  </div>
+                  </button>
+                </div>
+              </div>
+          {%endfor%}
 
 <form method="get" action="/menu">
-  <button type="submit">Go back to menu</button>
+
+      <button class="btn btn-dark btn-round btn-block" type="submit" name="Submit" value="Go to cart">
+      GO BACK TO MENU
+      </button>
+
 
   <meta charset="utf-8" />
 </form>
