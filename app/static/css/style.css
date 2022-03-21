@@ -7299,3 +7299,20 @@ input:disabled{
     box-shadow: 0 0 0 0.2rem rgba(190, 128, 64, 0.25); }
   .btn.disabled, .btn:disabled {
     opacity: 0.65; }
+
+
+
+
+span {cursor:pointer; }
+  .minus, .plus{
+			width:20px;
+			background:#f2f2f2;
+			border-radius:4px;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+  }
+  input{
+      text-align: center;
+      width: 50px;
+  }

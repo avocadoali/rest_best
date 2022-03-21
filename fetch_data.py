@@ -10,11 +10,9 @@ cur = conn.cursor()
 
 def get_menu_all():
     s = "select * from restbestmenu;"
-    print("vor cur")
     cur.execute(s)
     table = cur.fetchall()
     conn.commit()
-    print(table)
     return table
 
 def get_menu_by_id(id):

@@ -176,7 +176,10 @@
         '</div>' +
         '<div class="modal-footer">' +
         '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' +
-        '<button type="button" class="btn btn-primary" id="' + idCheckoutCart + '">Checkout</button>' +
+
+        '<form method="POST" action="#">' + 
+        '<button type="submit" name="Submit" class="btn btn-primary">To cart</button>' +
+        '</form>' + 
         '</div>' +
         '</div>' +
         '</div>' +

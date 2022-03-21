@@ -1,6 +1,7 @@
 {%extends "base.html"%} {%block content%}
 
-<div class="block hero1 my-auto" style="background-image: url(https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80);">
+<div
+  class="block hero1 my-auto" style="background-image: url(https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80);">
   <div class="container-fluid text-center">
     <h1 class="display-2 text-white" data-aos="fade-up" data-aos-duration="1000"data-aos-offset="0">
     MENU 
@@ -24,6 +25,7 @@
         </div>
 
         <!-- Start Pizza Menu -->
+<form method="POST" action="#">
         <div class="menu menu--is-visible" id="pizzaMenu" data-aos="fade-up">
           {%for x in menu_list%}
           <div class="item row align-items-center">
@@ -39,19 +41,23 @@
                   <p class="item__description">
                     {{x[4]}}
                   </p>
-                  <button
-                    class="btn btn-sm btn-outline-primary my-cart-btn"
-                     data-id={{x[0]}}
-                    data-name={{x[1]}}
-                    data-price={{x[3]}}
-                    data-quantity="1"
-                    data-image="./img/pizza-2.png"
-                  >
+                    <div class="number">
+	                  <span class="minus">-</span>
+                    <input type="number" name="{{x[0]}}" min="0" value="0"/>
+	                  <span class="plus">+</span>
+                    </div>
+
                     Add to cart
                   </button>
                 </div>
               </div>
           {%endfor%}
+
+  <p><input type="submit" name="Submit" value="Go to cart"/></p>
+</form>
+
+
+
 
           <!-- End Pizza Menu -->
 

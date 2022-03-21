@@ -54,17 +54,31 @@ def menu():
         return render_template("list-view.html",  menu_list=list)
 
     dict_cart = request.form.to_dict()
+    del dict_cart['Submit']
+
+    n_dict_cart ={}
+    for x in dict_cart:
+        if dict_cart[x] != '0':
+            n_dict_cart[x] = dict_cart[x]
+
     menu = get_menu_all()
 
     new_menu =  {}
-    dict_cart = { k:v for k, v in dict_cart.items() if v }
-    del dict_cart['Submit']
-    print(dict_cart)
-    new_menu =  {}
-    for x in dict_cart:
-        print(x)
+    for x in n_dict_cart:
         i = int(x)
-        new_menu[x] = [dict_cart[x], menu[i-1]]
+        new_menu[x] = [n_dict_cart[x], menu[i-1]]
+    print("")
+    print("")
+    print("")
+    print("")
+    print("")
+    print("sumbited menu")
+    print(new_menu)
+    print("end menu")
+    print("")
+    print("")
+    print("")
+    print("")
 
     session["dict_cart"] = new_menu
     return redirect(url_for("cart"))
