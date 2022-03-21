@@ -14,21 +14,31 @@
 
 <div class="maincontent">
   <div class="container">
-    <section id="menu">
       <div class="block menu1">
 
   <div class="menu menu--is-visible" id="pizzaMenu" data-aos="fade-up">
+          <div class="item row align-items-center">
+              <div class="details col-sm-9">
+                <div class="item__header">
+                  <h3 class="item__title">ITEM</h3>
+                  <span class="item__dotss"></span>
+                  <h3 class="item__title">AMOUNT</h3>
+                </div>
+            </div>
+          </div>
+
+
           {%for x in menu_list%}
           <div class="item row align-items-center">
-                <div class="details col-sm-9">
-                  <div class="item__header">
-                    <h4 class="item__title">{{x[1]}}</h4>
-                    <span class="item__dots"></span>
-                    <span class="item__price">{{x[5]}}x</span>
-                  </div>
-                  </button>
+              <div class="details col-sm-9">
+                <div class="item__header">
+                  {{x[1]}}
+                  <span class="item__dots"></span>
+                  {{x[5]}}x
                 </div>
               </div>
+          </div>
+
           {%endfor%}
 
 <form method="get" action="/menu">

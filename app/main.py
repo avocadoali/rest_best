@@ -104,6 +104,8 @@ def cart():
 
 @app.route("/orders" , methods=['GET', 'POST'])
 def orders():
+    if "tablenumber" not in session:
+        return redirect(url_for ("login"))
     table_id = session["tablenumber"]
     list = get_order_of_table(table_id)
     print(list)

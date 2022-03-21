@@ -7117,6 +7117,10 @@ a.text-beige:hover, a.text-beige:focus {
     font-size: 28px;
     font-weight: 700;
     margin: 0; }
+  .item__dotss {
+    flex: 1;
+    border-bottom: 1px dashed #ffffff;
+    margin: 0 15px; }
   .item__dots {
     flex: 1;
     border-bottom: 1px dashed #aaa;
