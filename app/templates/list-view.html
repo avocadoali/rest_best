@@ -27,26 +27,30 @@
         <div class="menu menu--is-visible" id="pizzaMenu" data-aos="fade-up">
           {%for x in menu_list%}
           <div class="item row align-items-center">
-            <div class="col-sm-3 pr-5">
-              <img class="product-img" src="./img/pizza-1.png" />
-            </div>
-            <div class="details col-sm-9">
-              <div class="item__header">
-                <h3 class="item__title">{{x[1]}}</h3>
-                <span class="item__dots"></span>
-                <span class="item__price">${{x[3]}}</span>
+                <div class="col-sm-3 pr-5">
+                  <img class="product-img" src="./img/pizza-1.png" />
+                </div>
+                <div class="details col-sm-9">
+                  <div class="item__header">
+                    <h3 class="item__title">{{x[1]}}</h3>
+                    <span class="item__dots"></span>
+                    <span class="item__price">${{x[3]}}</span>
+                  </div>
+                  <p class="item__description">
+                    {{x[4]}}
+                  </p>
+                  <button
+                    class="btn btn-sm btn-outline-primary my-cart-btn"
+                     data-id={{x[0]}}
+                    data-name={{x[1]}}
+                    data-price={{x[3]}}
+                    data-quantity="1"
+                    data-image="./img/pizza-2.png"
+                  >
+                    Add to cart
+                  </button>
+                </div>
               </div>
-              <p class="item__description">
-              {{x[4]}}
-              </p>
-
-
-              <button class="btn btn-sm btn-outline-primary my-cart-btn" data-id="1" data-name="Cheese Pizza" data-price="15" data-quantity="1" data-image="./img/pizza-1.png">
-                Add to cart
-              </button>
-            
-            </div>
-          </div>
           {%endfor%}
 
           <!-- End Pizza Menu -->
@@ -150,7 +154,3 @@
         </div>
 
         {%endblock%}
-      </div>
-    </section>
-  </div>
-</div>
