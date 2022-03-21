@@ -18,6 +18,8 @@
     <section id="menu">
       <div class="block menu1">
 
+
+
 <form method="POST" action="#">
         <div class="menu menu--is-visible" id="pizzaMenu" data-aos="fade-up">
           {%for x in list_cart%}
@@ -40,15 +42,18 @@
                 </div>
               </div>
           {%endfor%}
-
       <button class="btn btn-dark btn-round btn-block" type="submit" name="Submit" value="Go to cart">
-      ORDER
+      ORDER NOW
       </button>
-
 </form>
+<p>
 
-
-
+</p>
+<form  action="/menu">
+      <button class="btn  btn-outline-primary btn-round btn-block" >
+      GO BACK TO MENU
+      </button>
+</form>
 
 
 {%endblock%}

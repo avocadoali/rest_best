@@ -90,9 +90,16 @@ def cart():
     print("")
     print("")
     print("")
-    print("dict_cart")
+    print("")
     print(session["dict_cart"])
-    return render_template("cart.html", list_cart = session["dict_cart"])
+
+    if session["dict_cart"]:
+        return render_template("cart.html", list_cart = session["dict_cart"])
+    else:
+        no_orders = {}
+        no_orders[1] ="No orders were places"
+        print("ldskfjalsdfj")
+        return render_template("cart_empty.html", list_cart = no_orders)
  
 
 @app.route("/orders" , methods=['GET', 'POST'])

@@ -18,19 +18,19 @@
       <div class="block menu1">
         <div class="buttons-container">
           <a href="#" class="button button--is-active" data-target="pizzaMenu"
-            >Pizzas</a
+            >Main Dishes</a
           >
+          <a href="#" class="button" data-target="noodlesMenu">Sides</a>
           <a href="#" class="button" data-target="coffeeMenu">Drinks</a>
-          <a href="#" class="button" data-target="noodlesMenu">Desserts</a>
         </div>
 
         <!-- Start Pizza Menu -->
-<form method="POST" action="#">
+  <form method="POST" action="#">
         <div class="menu menu--is-visible" id="pizzaMenu" data-aos="fade-up">
           {%for x in menu_list%}
           <div class="item row align-items-center">
                 <div class="col-sm-3 pr-5">
-                  <img class="product-img" src="./img/pizza-1.png" />
+                  <img class="product-img" src="../static/img/pizza-1.png" />
                 </div>
                 <div class="details col-sm-9">
                   <div class="item__header">
