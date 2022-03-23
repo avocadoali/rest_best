@@ -1,55 +1,54 @@
-{%extends "base.html"%} 
-
-{%block content%} 
+{%extends "base.html"%} {%block content%}
 <div
-  class="block hero1 my-auto" style="background-image: url(https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80);">
+  class="block hero1 my-auto"
+  style="
+    background-image: url(https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80);
+  "
+>
   <div class="container-fluid text-center">
-    <h1 class="display-2 text-white" data-aos="fade-up" data-aos-duration="1000"data-aos-offset="0">
-    YOUR ORDERS
+    <h1
+      class="display-2 text-white"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      data-aos-offset="0"
+    >
+      YOUR ORDERS
     </h1>
-    <p class="lead text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600"></p>
+    <p
+      class="lead text-white"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      data-aos-delay="600"
+    ></p>
   </div>
   <div class="clearfix"></div>
-</div> 
+</div>
 
 <div class="maincontent">
   <div class="container">
-      <div class="block menu1">
+    <div class="item__header">
+      <h3 class="item__title">ITEM</h3>
+      <span class="item__dotss"></span>
+      <h3 class="item__title">AMOUNT</h3>
+    </div>
 
-  <div class="menu menu--is-visible" id="pizzaMenu" data-aos="fade-up">
-          <div class="item row align-items-center">
-              <div class="details col-sm-9">
-                <div class="item__header">
-                  <h3 class="item__title">ITEM</h3>
-                  <span class="item__dotss"></span>
-                  <h3 class="item__title">AMOUNT</h3>
-                </div>
-            </div>
-          </div>
+    {%for x in menu_list%}
+    <div class="item__header">
+      {{x[1]}}
+      <span class="item__dots"></span>
+      {{x[5]}}x
+    </div>
 
+    {%endfor%}
+    <p></p>
 
-          {%for x in menu_list%}
-          <div class="item row align-items-center">
-              <div class="details col-sm-9">
-                <div class="item__header">
-                  {{x[1]}}
-                  <span class="item__dots"></span>
-                  {{x[5]}}x
-                </div>
-              </div>
-          </div>
-
-          {%endfor%}
-
-<form method="get" action="/menu">
-
-      <button class="btn  btn-outline-primary btn-round btn-block" type="submit" name="Submit" value="Go to cart">
-      GO BACK TO MENU
+    <form method="get" action="/menu">
+      <button class="btn btn-outline-primary btn-round btn-block" type="submit" name="Submit" value="Go to cart">
+        GO BACK TO MENU
       </button>
-
-
-  <meta charset="utf-8" />
-</form>
-
+      <meta charset="utf-8" />
+    </form>
+  </div>
+</div>
 
 {%endblock%}
