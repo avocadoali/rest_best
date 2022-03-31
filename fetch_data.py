@@ -7,7 +7,7 @@ import uuid
 
 
 #secret link no one can find out!
-DATABASE_URL = S3Connection(os.environ['DATABASE_URL'])
+DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cur = conn.cursor() 
 
