@@ -1,10 +1,13 @@
+from boto.s3.connection import S3Connection
+
 import os
 import psycopg2
 import sys
 import uuid
 
+
 #secret link no one can find out!
-DATABASE_URL = THIS_IS_A_SECRET
+DATABASE_URL = S3Connection(os.environ['S3_KEY'], os.environ['S3_SECRET'])
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cur = conn.cursor() 
 
