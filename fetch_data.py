@@ -4,7 +4,7 @@ import sys
 import uuid
 
 #secret link no one can find out!
-DATABASE_URL = 'postgres://nhukilfdhxrgfd:a6a0114dfb6998f09a3eb29c86c659734cf32c07d6f29545998fdd104a1c2195@ec2-54-158-26-89.compute-1.amazonaws.com:5432/d9n45ft7eb89d7'
+DATABASE_URL = THIS_IS_A_SECRET
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cur = conn.cursor() 
 
