@@ -3,12 +3,18 @@ from datetime import timedelta
 
 from fetch_data import delete_items, get_distinct_table, get_menu_all, get_order_of_table, get_overview_orders, handle_order_cart
 
-## Start App on local host like this:
 
+## Start App on local host like this:
+# settings.py needs a database link
+# you have to set up your own database 
+# and insert your own database url
+
+# --Start server localy
 # python3 -m venv rest_best
 # source rest_best/bin/activate
 # pip install -r requirements.txt
 # python3 -m flask run
+
 # --To get auto reload in flask--
 # export FLASK_APP=app/main.py
 # export FLASK_ENV=development
