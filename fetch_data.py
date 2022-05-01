@@ -3,13 +3,15 @@ from boto.s3.connection import S3Connection
 import psycopg2
 import sys
 import uuid
-from settings import DB_URL
+#from settings import DB_URL
 
 
 #secret link no one can find out!
 
-DATABASE_URL = DB_URL
+#DATABASE_URL = DB_URL
+DATABASE_URL = 'postgres://nhukilfdhxrgfd:a6a0114dfb699659734cf32c07d6f29545998fdd104a1c2195@ec2-54-158-26-89.compute-1.amazonaws.com:5432/d9n45ft7eb89d7'
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+
 cur = conn.cursor() 
 
 def get_menu_all():
