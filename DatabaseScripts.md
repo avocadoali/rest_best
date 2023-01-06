@@ -167,15 +167,3 @@ UPDATE restbestmenu
 SET details = '0.5l Ensinger Sport'
 WHERE name = 'Water';
 
-
-
-# TODO's
-
-Benachrichtungsfunktion 
-    Hilfe
-    Bezahlen
-    Nachrichtschicken
-
-Loginpage Benutzer - Passwort
-
-Karte selber anlegen
